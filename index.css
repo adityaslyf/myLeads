@@ -2,13 +2,37 @@ body {
   margin: 0;
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
+  min-width: 400px;
   
 }
 #input-btn{
   background: green;
-  color:white;
+  color:black;
+  
 }
 #input-el{
-  
-  color:white;
+ border-color: green;
+  color:black;
 }
+ul{
+  margin-top: 20px;
+  list-style: none;
+  padding-left: 0;
+}
+
+
+li{
+
+  margin-top: 5px;
+}
+/* Regular link color */
+li a {
+  color: green;
+  text-decoration: none; /* Remove underlines from links */
+}
+
+/* Link color on hover */
+a:hover {
+  color: blue; /* Change to a darker green when hovered */
+}
+
