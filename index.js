@@ -1,39 +1,35 @@
-let myLeads = `["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"]`;
-const inputEl = document.getElementById("input-el");
+let myLeads = []
+const inputEl = document.getElementById("input-el")
+const inputBtn = document.getElementById("input-btn")
+const ulEl = document.getElementById("ul-el")
 
-// const button = document.getElementById("input-btn");
-// const ulEl = document.getElementById("ul-el")
+localStorage.clear()
+let leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 
-let JSONstring = JSON.parse(myLeads)
-let JSONupdate = JSON.stringify(JSONstring)
-localStorage.setItem(JSONupdate)
-localStorage.getItem(JSONupdate)
-console.log(localStorage)
+console.log(leadsFromLocalStorage)
 
-button.addEventListener("click", function () {
-  // let inpuValue = document.getElementById("input-el").value
-  // myLeads.push(inpuValue)
-  myLeads.push(inputEl.value)
-  inputEl.value =""
-  renderLeads()
- 
-});
+inputBtn.addEventListener("click", function() {
+    myLeads.push(inputEl.value)
+    inputEl.value = ""
+    // Save the myLeads array to localStorage 
+    // PS: remember JSON.stringify()
+    localStorage.setItem("myLeads",JSON.stringify(myLeads))
+    renderLeads()
+    
+    // To verify that it works:
+    console.log( localStorage.getItem("myLeads") )
+})
 
-function renderLeads(){
-
-let listItems = ""
-for (let i=0; i < myLeads.length; i++){
-  // listItems += "<li><a target ='_blank' href='" +myLeads[i] + "' >"+ myLeads[i] +"</a></li> "
-  listItems += `
-  <li>
-  <a target='_blank' href='${myLeads[i]}'>${myLeads[i]}</a>
-  </li>
-  `
-  ;
-
+function renderLeads() {
+    let listItems = ""
+    for (let i = 0; i < myLeads.length; i++) {
+        listItems += `
+            <li>
+                <a target='_blank' href='${myLeads[i]}'>
+                    ${myLeads[i]}
+                </a>
+            </li>
+        `
+    }
+    ulEl.innerHTML = listItems  
 }
-
-ulEl.innerHTML = listItems
-}
-
-renderLeads()
