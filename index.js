@@ -1,8 +1,14 @@
-let myLeads = ["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"];
+let myLeads = `["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"]`;
 const inputEl = document.getElementById("input-el");
 
-const button = document.getElementById("input-btn");
-const ulEl = document.getElementById("ul-el")
+// const button = document.getElementById("input-btn");
+// const ulEl = document.getElementById("ul-el")
+
+let JSONstring = JSON.parse(myLeads)
+let JSONupdate = JSON.stringify(JSONstring)
+localStorage.setItem(JSONupdate)
+localStorage.getItem(JSONupdate)
+console.log(localStorage)
 
 button.addEventListener("click", function () {
   // let inpuValue = document.getElementById("input-el").value
