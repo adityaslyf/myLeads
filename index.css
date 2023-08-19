@@ -10,6 +10,11 @@ body {
   color:black;
   
 }
+#input-btn2{
+background: red;
+color: black;
+
+}
 #input-el{
  border-color: green;
   color:black;
